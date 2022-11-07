@@ -1,0 +1,40 @@
+---
+import Layout from '@layouts/Layout.astro'
+
+export function getStaticPaths() {
+  return [{ params: { post: '1' } }, { params: { post: '2' } }, { params: { post: '3' } }]
+}
+
+const { post } = Astro.params
+---
+
+<Layout title='Posts | Fentos Astro'>
+  <main>
+    <h1>Welcome to <span>Posts</span></h1>
+    <h3>This is the post {post}</h3>
+    <a href='/posts'>Return to posts</a>
+  </main>
+</Layout>
+
+<style lang='scss'>
+  main {
+    display: flex;
+    flex-direction: column;
+    gap: -var(--size-spacing-2);
+  }
+  h1 {
+    font-size: 3rem;
+  }
+  a {
+    padding: 1rem 2rem;
+    background-color: var(--color-main-1);
+    color: #fff;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    width: fit-content;
+
+    &:hover {
+      filter: brightness(0.8);
+    }
+  }
+</style>

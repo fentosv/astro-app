@@ -1,0 +1,24 @@
+---
+import PokemonCard from '@components/PokemonCard.astro'
+import Layout from '@layouts/Layout.astro'
+const { results } = await fetch('https://pokeapi.co/api/v2/pokemon?limit=9&offset=0').then((res) => res.json())
+---
+
+<Layout title='Pokemon | Fentos Astro'>
+  <main>
+    <h1>Welcome to <span>Pokemon</span></h1>
+    <section>
+      {results.map(({ name }: { name: string }) => <PokemonCard name={name} />)}
+    </section>
+  </main>
+  <style>
+    h1 {
+      font-size: 3rem;
+    }
+    section {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+  </style>
+</Layout>

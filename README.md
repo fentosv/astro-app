@@ -7,3 +7,5 @@ Trying this framework with:
 - Interactivity islands.
 - Image optimization.
 - Using React (with Signals), Preact and Astro components.
+
+You can preview the web [here](https://astro-app-test.vercel.app/).

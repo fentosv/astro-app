@@ -10,7 +10,7 @@ import image from '@astrojs/image'
 import preact from '@astrojs/preact'
 
 // https://astro.build/config
-import vercel from '@astrojs/vercel/serverless'
+// import vercel from '@astrojs/vercel/serverless'
 
 // https://astro.build/config
 export default defineConfig({
@@ -21,6 +21,6 @@ export default defineConfig({
     }),
     preact(),
   ],
-  output: 'server',
-  adapter: vercel(),
+  // output: 'server',
+  // adapter: vercel(),
 })

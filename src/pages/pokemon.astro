@@ -1,4 +1,5 @@
 ---
+import Favorites from '@components/Favorites'
 import PokemonCard from '@components/PokemonCard.astro'
 import Layout from '@layouts/Layout.astro'
 const { results } = await fetch('https://pokeapi.co/api/v2/pokemon?limit=9&offset=0').then((res) => res.json())
@@ -7,18 +8,35 @@ const { results } = await fetch('https://pokeapi.co/api/v2/pokemon?limit=9&offse
 <Layout title='Pokemon | Fentos Astro'>
   <main>
     <h1>Welcome to <span>Pokemon</span></h1>
-    <section>
+
+    <section class='grid'>
       {results.map(({ name }: { name: string }) => <PokemonCard name={name} />)}
+    </section>
+    <section>
+      <Favorites client:idle />
     </section>
   </main>
   <style>
     h1 {
       font-size: 3rem;
     }
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
     section {
+      width: var(--section-width);
       display: flex;
       flex-direction: column;
       gap: 0.8rem;
+    }
+    .grid {
+      flex-wrap: wrap;
+      flex-direction: row;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(min(100%, 21rem), 1fr));
     }
   </style>
 </Layout>

@@ -1,5 +1,6 @@
 ---
 import { Image } from '@astrojs/image/components'
+import FavoriteButton from './FavoriteButton'
 interface Props {
   name: string
 }
@@ -8,28 +9,45 @@ const data = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`).then((res)
 ---
 
 <li>
-  <span>{name}</span>
-  <Image
-    alt={`${name} image`}
-    aspectRatio={1}
-    format='webp'
-    src={data.sprites.front_default}
-    width='96'
-  />
+  <div>
+    <span>{name}</span>
+  </div>
+  <div>
+    <Image
+      alt={`${name} image`}
+      aspectRatio={1}
+      format='webp'
+      src={data.sprites.front_default}
+      width='96'
+    />
+  </div>
+  <div>
+    <!-- Without this directive, Astro won't add to them the events/functions -->
+    <FavoriteButton
+      client:visible
+      name={name}
+    />
+  </div>
 </li>
-<style>
+<style lang='scss'>
   li {
+    padding: 0 2rem;
     list-style: none;
     display: flex;
     align-items: center;
-    justify-content: center;
+    text-align: center;
     gap: 1rem;
+
     background: rgb(212, 226, 196);
     background: linear-gradient(140deg, rgb(212, 226, 196) 0%, rgb(217, 184, 216) 100%);
     border-radius: 0.4rem;
-    box-shadow: rgba(187, 187, 187, 0.4) 1px 1px 4px;
+  }
+  div {
+    flex: 1;
   }
   span {
     color: purple;
+    text-transform: capitalize;
+    font-weight: 600;
   }
 </style>

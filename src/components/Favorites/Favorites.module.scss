@@ -1,0 +1,14 @@
+.list {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+
+  &__item {
+    padding: 1rem;
+    border-radius: 0.4rem;
+    font-weight: 600;
+    text-transform: capitalize;
+    background: linear-gradient(140deg, rgb(196, 211, 226) 0%, rgba(255, 252, 190, 0.848) 100%);
+  }
+}

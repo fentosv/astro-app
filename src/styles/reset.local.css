@@ -16,3 +16,7 @@ h5,
 h6 {
   font-weight: 600;
 }
+
+ul {
+  padding: 0;
+}

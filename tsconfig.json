@@ -1,18 +1,34 @@
 {
   "extends": "astro/tsconfigs/strict",
-  "types": ["@astrojs/image/client"],
+  "types": [
+    "@astrojs/image/client"
+  ],
   "compilerOptions": {
     "jsx": "react-jsx",
-    "jsxImportSource": "react",
+    "jsxImportSource": "preact",
     "baseUrl": ".",
     "paths": {
-      "@components/*": ["src/components/*"],
-      "@hooks/*": ["src/hooks/*"],
-      "@layouts/*": ["src/layouts/*"],
-      "@pages/*": ["src/pages/*"],
-      "@public/*": ["public/*"],
-      "@types": ["src/types/types.ts"],
-      "@utils/*": ["src/utils/*"]
+      "@components/*": [
+        "src/components/*"
+      ],
+      "@hooks/*": [
+        "src/hooks/*"
+      ],
+      "@layouts/*": [
+        "src/layouts/*"
+      ],
+      "@pages/*": [
+        "src/pages/*"
+      ],
+      "@public/*": [
+        "public/*"
+      ],
+      "@types": [
+        "src/types/types.ts"
+      ],
+      "@utils/*": [
+        "src/utils/*"
+      ]
     }
   }
 }
